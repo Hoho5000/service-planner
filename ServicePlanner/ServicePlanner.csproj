@@ -52,4 +52,24 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.8" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Resources\Language\Strings.resx" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Language\Strings.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Strings.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Language\Strings.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
 </Project>
