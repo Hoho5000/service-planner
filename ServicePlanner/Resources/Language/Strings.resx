@@ -123,6 +123,9 @@
   <data name="App.Title" xml:space="preserve">
     <value>Service Planner</value>
   </data>
+  <data name="Home.Navigation.Title" xml:space="preserve">
+    <value>Home</value>
+  </data>
   <data name="OrderOfService.Description" xml:space="preserve">
     <value>Plan your order of service with music and other items.</value>
   </data>

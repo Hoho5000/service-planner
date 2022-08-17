@@ -79,6 +79,15 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        internal static string Home_Navigation_Title {
+            get {
+                return ResourceManager.GetString("Home.Navigation.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plan your order of service with music and other items..
         /// </summary>
         internal static string OrderOfService_Description {
