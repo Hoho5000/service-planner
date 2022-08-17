@@ -1,0 +1,30 @@
+﻿@using ServicePlanner.Service.Models
+
+@inject IStringLocalizer<Strings> Localize
+
+<div class="mb-3">
+	<label class="form-label">
+		@Localize["ServiceEditor.ItemEditor.Label"]
+		<input type="text" class="form-control" @oninput="HandleInputUpdate" value="@Item.Content" />
+	</label>
+</div>
+
+@code {
+	[Parameter]
+	public GeneralServiceItem Item { get; set; }
+
+	[Parameter]
+	public EventCallback<GeneralServiceItem> OnUpdate { get; set; }
+
+	private async Task HandleInputUpdate(ChangeEventArgs args)
+	{
+		if (OnUpdate.HasDelegate)
+		{
+			if (args is not null)
+			{
+				Item.Content = (string)args.Value;
+				await OnUpdate.InvokeAsync(Item);
+			}
+		}
+	}
+}

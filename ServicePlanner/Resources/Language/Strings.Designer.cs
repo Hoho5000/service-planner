@@ -77,5 +77,113 @@ namespace ServicePlanner.Resources.Language {
                 return ResourceManager.GetString("App.Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan your order of service with music and other items..
+        /// </summary>
+        internal static string OrderOfService_Description {
+            get {
+                return ResourceManager.GetString("OrderOfService.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order of Service.
+        /// </summary>
+        internal static string OrderOfService_Title {
+            get {
+                return ResourceManager.GetString("OrderOfService.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Service Item.
+        /// </summary>
+        internal static string ServiceEditor_AddGeneralServiceItem {
+            get {
+                return ResourceManager.GetString("ServiceEditor.AddGeneralServiceItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Song.
+        /// </summary>
+        internal static string ServiceEditor_AddSongServiceItem {
+            get {
+                return ResourceManager.GetString("ServiceEditor.AddSongServiceItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change me.
+        /// </summary>
+        internal static string ServiceEditor_ItemEditor_Default {
+            get {
+                return ResourceManager.GetString("ServiceEditor.ItemEditor.Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service item.
+        /// </summary>
+        internal static string ServiceEditor_ItemEditor_Label {
+            get {
+                return ResourceManager.GetString("ServiceEditor.ItemEditor.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service Items.
+        /// </summary>
+        internal static string ServiceEditor_ServiceEditor_Header {
+            get {
+                return ResourceManager.GetString("ServiceEditor.ServiceEditor.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Song.
+        /// </summary>
+        internal static string ServiceEditor_SongEditor_Label {
+            get {
+                return ResourceManager.GetString("ServiceEditor.SongEditor.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include random songs.
+        /// </summary>
+        internal static string Songs_IncludeRandom {
+            get {
+                return ResourceManager.GetString("Songs.IncludeRandom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of songs in book.
+        /// </summary>
+        internal static string Songs_NumberInBook {
+            get {
+                return ResourceManager.GetString("Songs.NumberInBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of songs to include in service.
+        /// </summary>
+        internal static string Songs_NumberToInclude {
+            get {
+                return ResourceManager.GetString("Songs.NumberToInclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Songs.
+        /// </summary>
+        internal static string Songs_Title {
+            get {
+                return ResourceManager.GetString("Songs.Title", resourceCulture);
+            }
+        }
     }
 }

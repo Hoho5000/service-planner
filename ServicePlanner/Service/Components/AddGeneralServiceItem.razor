@@ -1,0 +1,22 @@
+﻿@using ServicePlanner.Service.Models
+
+@inject IStringLocalizer<Strings> Localize
+
+<button type="button" class="btn btn-primary" @onclick="HandleInputUpdate">@Localize["ServiceEditor.AddGeneralServiceItem"]</button>
+
+@code {
+	[Parameter]
+	public EventCallback<GeneralServiceItem> OnClick { get; set; }
+
+	private async Task HandleInputUpdate(MouseEventArgs args)
+	{
+		if (OnClick.HasDelegate)
+		{
+			if (args is not null)
+			{
+				var item = new GeneralServiceItem() { Content = Localize["ServiceEditor.ItemEditor.Default"] };
+				await OnClick.InvokeAsync(item);
+			}
+		}
+	}
+}

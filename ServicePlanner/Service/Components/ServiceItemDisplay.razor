@@ -1,0 +1,10 @@
+﻿@using ServicePlanner.Service.Models
+
+<li class="list-group-item">@Item.Format(formatter)</li>
+
+@code {
+	[Parameter]
+	public ServiceItem Item { get; set; }
+
+	private static ServiceItemFormatter formatter = new ServiceItemFormatter();
+}

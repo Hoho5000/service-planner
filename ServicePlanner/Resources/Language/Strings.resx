@@ -123,4 +123,40 @@
   <data name="App.Title" xml:space="preserve">
     <value>Service Planner</value>
   </data>
+  <data name="OrderOfService.Description" xml:space="preserve">
+    <value>Plan your order of service with music and other items.</value>
+  </data>
+  <data name="OrderOfService.Title" xml:space="preserve">
+    <value>Order of Service</value>
+  </data>
+  <data name="ServiceEditor.AddGeneralServiceItem" xml:space="preserve">
+    <value>Add Service Item</value>
+  </data>
+  <data name="ServiceEditor.AddSongServiceItem" xml:space="preserve">
+    <value>Add Song</value>
+  </data>
+  <data name="ServiceEditor.ItemEditor.Default" xml:space="preserve">
+    <value>Change me</value>
+  </data>
+  <data name="ServiceEditor.ItemEditor.Label" xml:space="preserve">
+    <value>Service item</value>
+  </data>
+  <data name="ServiceEditor.ServiceEditor.Header" xml:space="preserve">
+    <value>Service Items</value>
+  </data>
+  <data name="ServiceEditor.SongEditor.Label" xml:space="preserve">
+    <value>Song</value>
+  </data>
+  <data name="Songs.IncludeRandom" xml:space="preserve">
+    <value>Include random songs</value>
+  </data>
+  <data name="Songs.NumberInBook" xml:space="preserve">
+    <value>Number of songs in book</value>
+  </data>
+  <data name="Songs.NumberToInclude" xml:space="preserve">
+    <value>Number of songs to include in service</value>
+  </data>
+  <data name="Songs.Title" xml:space="preserve">
+    <value>Songs</value>
+  </data>
 </root>

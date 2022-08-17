@@ -1,0 +1,57 @@
+﻿@page "/orderofservice"
+
+@using ServicePlanner.Data.Music
+@using ServicePlanner.Service.Components
+@using ServicePlanner.Service.Models
+
+@inject IStringLocalizer<Strings> Localize
+
+<h1>@Localize["OrderOfService.Title"]</h1>
+<p>@Localize["OrderOfService.Description"]</p>
+
+<form>
+	<div class="form-group">
+		<AddSongServiceItem OnClick="HandleServiceItemAdd" />
+		<AddGeneralServiceItem OnClick="HandleServiceItemAdd" />
+	</div>
+</form>
+
+<hr />
+
+<h2>@Localize["ServiceEditor.ServiceEditor.Header"]</h2>
+
+<form>
+	<div class="form-group">
+		@foreach (var item in ServiceItems)
+		{
+			var type = item.GetType();
+
+			if (type == typeof(Song))
+			{
+				<SongServiceItemEditor Song="(Song)item" OnSongUpdate="HandleServiceItemUpdate" />
+			}
+			else if (type == typeof(GeneralServiceItem))
+			{
+				<GeneralServiceItemEditor Item="(GeneralServiceItem)item" OnUpdate="HandleServiceItemUpdate" />
+			}
+		}
+	</div>
+</form>
+
+<hr />
+
+<OrderOfServiceDisplay ServiceItems="ServiceItems" />
+
+@code {
+	private List<ServiceItem> ServiceItems { get; set; } = new List<ServiceItem>();
+
+	private void HandleServiceItemAdd(ServiceItem item)
+	{
+		ServiceItems.Add(item);
+	}
+
+	private void HandleServiceItemUpdate(ServiceItem item)
+	{
+		this.StateHasChanged();
+	}
+}

@@ -1,0 +1,35 @@
+﻿@using ServicePlanner.Data.Music
+
+@inject IStringLocalizer<Strings> Localize
+
+<div class="mb-3">
+	<label class="form-label">
+		@Localize["ServiceEditor.SongEditor.Label"]
+		<input type="number" class="form-control" min="1" max="@Max" value="@Song.Number" @oninput="HandleInputUpdate" />
+	</label>
+</div>
+
+@code {
+	[Parameter]
+	public Song Song { get; set; } = new Song() { Number = 1 };
+
+	[Parameter]
+	public int Max { get; set; } = int.MaxValue;
+
+	[Parameter]
+	public EventCallback<Song> OnSongUpdate { get; set; }
+
+	private async Task HandleInputUpdate(ChangeEventArgs args)
+	{
+		if (OnSongUpdate.HasDelegate)
+		{
+			if (args is not null)
+			{
+				int songNumber;
+				int.TryParse((string)args.Value, out songNumber);
+				Song.Number = songNumber;
+				await OnSongUpdate.InvokeAsync(Song);
+			}
+		}
+	}
+}
