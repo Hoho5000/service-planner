@@ -5,7 +5,7 @@
 <div class="mb-3">
 	<label class="form-label">
 		@Localize["ServiceEditor.SongEditor.Label"]
-		<input type="number" class="form-control" min="1" max="@Max" value="@Song.Number" @oninput="HandleInputUpdate" />
+		<input type="number" class="form-control" min="1" max="@Max" value="@Song.Number" @oninput="HandleNumberUpdate" />
 	</label>
 </div>
 
@@ -19,7 +19,7 @@
 	[Parameter]
 	public EventCallback<Song> OnSongUpdate { get; set; }
 
-	private async Task HandleInputUpdate(ChangeEventArgs args)
+	private async Task HandleNumberUpdate(ChangeEventArgs args)
 	{
 		if (OnSongUpdate.HasDelegate)
 		{
