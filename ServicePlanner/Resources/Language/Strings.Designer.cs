@@ -61,7 +61,7 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Service Planner is a tool that can be used to help plan church services..
+        ///   Looks up a localized string similar to Service Planner is a tool that can be used to help plan church services. Select an option from the menu on the left to get started..
         /// </summary>
         internal static string App_Description {
             get {
