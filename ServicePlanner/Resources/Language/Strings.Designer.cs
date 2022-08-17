@@ -61,6 +61,33 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Created by Tyler Poradun..
+        /// </summary>
+        internal static string About_Description {
+            get {
+                return ResourceManager.GetString("About.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string About_Title {
+            get {
+                return ResourceManager.GetString("About.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version: {0}.
+        /// </summary>
+        internal static string About_Version {
+            get {
+                return ResourceManager.GetString("About.Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Service Planner is a tool that can be used to help plan church services. Select an option from the menu on the left to get started..
         /// </summary>
         internal static string App_Description {

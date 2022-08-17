@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About.Description" xml:space="preserve">
+    <value>Created by Tyler Poradun.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="About.Version" xml:space="preserve">
+    <value>Version: {0}</value>
+  </data>
   <data name="App.Description" xml:space="preserve">
     <value>Service Planner is a tool that can be used to help plan church services. Select an option from the menu on the left to get started.</value>
   </data>
