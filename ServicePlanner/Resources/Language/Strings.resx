@@ -156,8 +156,14 @@
   <data name="ServiceEditor.ServiceEditor.Header" xml:space="preserve">
     <value>Service Items</value>
   </data>
-  <data name="ServiceEditor.SongEditor.Label" xml:space="preserve">
+  <data name="ServiceEditor.SongEditor.Number.Label" xml:space="preserve">
     <value>Song</value>
+  </data>
+  <data name="ServiceEditor.SongEditor.Title.Default" xml:space="preserve">
+    <value>Change me</value>
+  </data>
+  <data name="ServiceEditor.SongEditor.Title.Label" xml:space="preserve">
+    <value>Title</value>
   </data>
   <data name="Songs.IncludeRandom" xml:space="preserve">
     <value>Include random songs</value>

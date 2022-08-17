@@ -4,8 +4,12 @@
 
 <div class="mb-3">
 	<label class="form-label">
-		@Localize["ServiceEditor.SongEditor.Label"]
+		@Localize["ServiceEditor.SongEditor.Number.Label"]
 		<input type="number" class="form-control" min="1" max="@Max" value="@Song.Number" @oninput="HandleNumberUpdate" />
+	</label>
+		<label class="form-label">
+		@Localize["ServiceEditor.SongEditor.Title.Label"]
+		<input type="text" class="form-control" value="@Song.Title" @oninput="HandleTitleUpdate" />
 	</label>
 </div>
 
@@ -18,6 +22,18 @@
 
 	[Parameter]
 	public EventCallback<Song> OnSongUpdate { get; set; }
+
+	private async Task HandleTitleUpdate(ChangeEventArgs args)
+	{
+		if (OnSongUpdate.HasDelegate)
+		{
+			if (args is not null)
+			{
+				Song.Title = (string)args.Value;
+				await OnSongUpdate.InvokeAsync(Song);
+			}
+		}
+	}
 
 	private async Task HandleNumberUpdate(ChangeEventArgs args)
 	{

@@ -180,9 +180,27 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Song.
         /// </summary>
-        internal static string ServiceEditor_SongEditor_Label {
+        internal static string ServiceEditor_SongEditor_Number_Label {
             get {
-                return ResourceManager.GetString("ServiceEditor.SongEditor.Label", resourceCulture);
+                return ResourceManager.GetString("ServiceEditor.SongEditor.Number.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change me.
+        /// </summary>
+        internal static string ServiceEditor_SongEditor_Title_Default {
+            get {
+                return ResourceManager.GetString("ServiceEditor.SongEditor.Title.Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        internal static string ServiceEditor_SongEditor_Title_Label {
+            get {
+                return ResourceManager.GetString("ServiceEditor.SongEditor.Title.Label", resourceCulture);
             }
         }
         

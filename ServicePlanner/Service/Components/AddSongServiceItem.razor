@@ -14,7 +14,7 @@
 		{
 			if (args is not null)
 			{
-				Song song = new Song() { Number = 1 };
+				Song song = new Song() { Number = 1, Title = Localize["ServiceEditor.SongEditor.Title.Default"] };
 				await OnClick.InvokeAsync(song);
 			}
 		}

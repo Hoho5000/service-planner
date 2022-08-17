@@ -7,7 +7,7 @@ namespace ServicePlanner.Service
 	{
 		public string FormatServiceItem(Song song)
 		{
-			return $"{song.Number}";
+			return $"{song.Number} - {song.Title}";
 		}
 
 		public string FormatServiceItem(GeneralServiceItem item)
