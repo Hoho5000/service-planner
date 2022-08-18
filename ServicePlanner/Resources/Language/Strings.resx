@@ -147,6 +147,9 @@
   <data name="ServiceEditor.AddSongServiceItem" xml:space="preserve">
     <value>Add Song</value>
   </data>
+  <data name="ServiceEditor.GeneratePdf.Label" xml:space="preserve">
+    <value>Generate PDF</value>
+  </data>
   <data name="ServiceEditor.ItemEditor.Default" xml:space="preserve">
     <value>Change me</value>
   </data>

@@ -2,16 +2,22 @@
 
 @inject IStringLocalizer<Strings> Localize
 
-<h3>@Localize["OrderOfService.Title"]</h3>
+   <style>
+	@LayoutStyle
+   </style>
 
-<ol class="list-group">
-	@foreach (var item in ServiceItems)
-	{
-		<ServiceItemDisplay Item="item" />
-	}
-</ol>
+	<h3>@Localize["OrderOfService.Title"]</h3>
 
+	<ul class="list-group">
+		@foreach (var item in ServiceItems)
+		{
+			<ServiceItemDisplay Item="item" />
+		}
+	</ul>
 @code {
 	[Parameter]
 	public List<ServiceItem> ServiceItems { get; set; } = new List<ServiceItem>();
+
+	[Parameter]
+    public string LayoutStyle { get; set; }
 }

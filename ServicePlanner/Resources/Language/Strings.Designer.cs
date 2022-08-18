@@ -151,6 +151,15 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate PDF.
+        /// </summary>
+        internal static string ServiceEditor_GeneratePdf_Label {
+            get {
+                return ResourceManager.GetString("ServiceEditor.GeneratePdf.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change me.
         /// </summary>
         internal static string ServiceEditor_ItemEditor_Default {

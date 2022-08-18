@@ -36,11 +36,11 @@
 			}
 		}
 	</div>
+
+	<GenerateServicePdf ServiceItems="ServiceItems" />
 </form>
 
 <hr />
-
-<OrderOfServiceDisplay ServiceItems="ServiceItems" />
 
 @code {
 	private List<ServiceItem> ServiceItems { get; set; } = new List<ServiceItem>();

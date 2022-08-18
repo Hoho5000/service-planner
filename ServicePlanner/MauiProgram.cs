@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Components.WebView.Maui;
-using ServicePlanner.Data;
+﻿using WkHtmlToPdfDotNet;
+using WkHtmlToPdfDotNet.Contracts;
 
 namespace ServicePlanner;
 
@@ -16,12 +16,13 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddMauiBlazorWebView();
-		#if DEBUG
+#if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
-		
+
+        builder.Services.AddSingleton<IConverter>(new SynchronizedConverter(new PdfTools()));
 		builder.Services.AddLocalization();
 
-		return builder.Build();
+        return builder.Build();
 	}
 }
