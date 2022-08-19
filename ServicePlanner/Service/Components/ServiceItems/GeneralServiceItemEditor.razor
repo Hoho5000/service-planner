@@ -1,5 +1,7 @@
 ﻿@using ServicePlanner.Service.Models
 
+@inherits ServiceItemEditor
+
 @inject IStringLocalizer<Strings> Localize
 
 <div class="mb-3">
@@ -17,9 +19,6 @@
 
     [Parameter]
     public EventCallback<GeneralServiceItem> OnUpdate { get; set; }
-
-    [Parameter]
-    public EventCallback<GeneralServiceItem> OnDelete { get; set; }
 
     private async Task HandleInputUpdate(ChangeEventArgs args)
     {

@@ -1,5 +1,7 @@
 ﻿@using ServicePlanner.Data.Music
 
+@inherits ServiceItemEditor
+
 @inject IStringLocalizer<Strings> Localize
 
 <div class="mb-3">
@@ -24,10 +26,7 @@
 
     [Parameter]
     public EventCallback<Song> OnSongUpdate { get; set; }
-
-    [Parameter]
-    public EventCallback<Song> OnSongRemoval { get; set; }
-
+    
     private async Task HandleTitleUpdate(ChangeEventArgs args)
     {
         if (OnSongUpdate.HasDelegate)
@@ -55,9 +54,9 @@
 
     private async Task HandleSongDelete()
     {
-        if (OnSongRemoval.HasDelegate)
+        if (OnDelete.HasDelegate)
         {
-            await OnSongRemoval.InvokeAsync(Song);
+            await OnDelete.InvokeAsync(Song);
         }
     }
 }
