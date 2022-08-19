@@ -5,18 +5,18 @@
 <button type="button" class="btn btn-primary" @onclick="HandleInputUpdate">@Localize["ServiceEditor.AddSongServiceItem"]</button>
 
 @code {
-	[Parameter]
-	public EventCallback<Song> OnClick { get; set; }
+    [Parameter]
+    public EventCallback<Song> OnClick { get; set; }
 
-	private async Task HandleInputUpdate(MouseEventArgs args)
-	{
-		if (OnClick.HasDelegate)
-		{
-			if (args is not null)
-			{
-				Song song = new Song() { Number = 1, Title = Localize["ServiceEditor.SongEditor.Title.Default"] };
-				await OnClick.InvokeAsync(song);
-			}
-		}
-	}
+    private async Task HandleInputUpdate(MouseEventArgs args)
+    {
+        if (OnClick.HasDelegate)
+        {
+            if (args is not null)
+            {
+                Song song = new Song() { Number = 1, Title = Localize["ServiceEditor.SongEditor.Title.Default"] };
+                await OnClick.InvokeAsync(song);
+            }
+        }
+    }
 }

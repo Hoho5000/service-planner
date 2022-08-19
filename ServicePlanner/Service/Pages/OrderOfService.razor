@@ -11,10 +11,10 @@
 <p>@Localize["OrderOfService.Description"]</p>
 
 <form>
-	<div class="form-group">
-		<AddSongServiceItem OnClick="HandleServiceItemAdd" />
-		<AddGeneralServiceItem OnClick="HandleServiceItemAdd" />
-	</div>
+    <div class="form-group">
+        <AddSongServiceItem OnClick="HandleServiceItemAdd" />
+        <AddGeneralServiceItem OnClick="HandleServiceItemAdd" />
+    </div>
 </form>
 
 <hr />
@@ -22,42 +22,42 @@
 <h2>@Localize["ServiceEditor.ServiceEditor.Header"]</h2>
 
 <form>
-	<div class="form-group">
-		@foreach (var item in ServiceItems)
-		{
-			var type = item.GetType();
+    <div class="form-group">
+        @foreach (var item in ServiceItems)
+        {
+            var type = item.GetType();
 
-			if (type == typeof(Song))
-			{
-				<SongServiceItemEditor Song="(Song)item" OnSongUpdate="HandleServiceItemUpdate" OnSongRemoval="HandleServiceItemRemoval" />
-			}
-			else if (type == typeof(GeneralServiceItem))
-			{
-				<GeneralServiceItemEditor Item="(GeneralServiceItem)item" OnUpdate="HandleServiceItemUpdate" OnDelete="HandleServiceItemRemoval" />
-			}
-		}
-	</div>
+            if (type == typeof(Song))
+            {
+                <SongServiceItemEditor Song="(Song)item" OnSongUpdate="HandleServiceItemUpdate" OnSongRemoval="HandleServiceItemRemoval" />
+            }
+            else if (type == typeof(GeneralServiceItem))
+            {
+                <GeneralServiceItemEditor Item="(GeneralServiceItem)item" OnUpdate="HandleServiceItemUpdate" OnDelete="HandleServiceItemRemoval" />
+            }
+        }
+    </div>
 
-	<GenerateServicePdf ServiceItems="ServiceItems" />
+    <GenerateServicePdf ServiceItems="ServiceItems" />
 </form>
 
 <hr />
 
 @code {
-	private List<ServiceItem> ServiceItems { get; set; } = new List<ServiceItem>();
+    private List<ServiceItem> ServiceItems { get; set; } = new List<ServiceItem>();
 
-	private void HandleServiceItemAdd(ServiceItem item)
-	{
-		ServiceItems.Add(item);
-	}
+    private void HandleServiceItemAdd(ServiceItem item)
+    {
+        ServiceItems.Add(item);
+    }
 
-	private void HandleServiceItemUpdate(ServiceItem item)
-	{
-		this.StateHasChanged();
-	}
+    private void HandleServiceItemUpdate(ServiceItem item)
+    {
+        this.StateHasChanged();
+    }
 
-	private void HandleServiceItemRemoval(ServiceItem item)
-	{
-		ServiceItems.Remove(item);
-	}
+    private void HandleServiceItemRemoval(ServiceItem item)
+    {
+        ServiceItems.Remove(item);
+    }
 }

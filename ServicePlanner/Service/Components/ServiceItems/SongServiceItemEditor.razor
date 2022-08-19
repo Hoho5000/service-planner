@@ -3,62 +3,61 @@
 @inject IStringLocalizer<Strings> Localize
 
 <div class="mb-3">
-	<label class="form-label">
-		@Localize["ServiceEditor.SongEditor.Number.Label"]
-		<input type="number" class="form-control" min="1" max="@Max" value="@Song.Number" @oninput="HandleNumberUpdate" />
-	</label>
-		<label class="form-label">
-		@Localize["ServiceEditor.SongEditor.Title.Label"]
-		<input type="text" class="form-control" value="@Song.Title" @oninput="HandleTitleUpdate" />
-	</label>
+    <label class="form-label">
+        @Localize["ServiceEditor.SongEditor.Number.Label"]
+        <input type="number" class="form-control" min="1" max="@Max" value="@Song.Number" @oninput="HandleNumberUpdate" />
+    </label>
+    <label class="form-label">
+        @Localize["ServiceEditor.SongEditor.Title.Label"]
+        <input type="text" class="form-control" value="@Song.Title" @oninput="HandleTitleUpdate" />
+    </label>
 
-	<DeleteServiceItem OnClick="HandleSongDelete" />
+    <DeleteServiceItem OnClick="HandleSongDelete" />
 </div>
 
 @code {
-	[Parameter]
-	public Song Song { get; set; } = new Song() { Number = 1 };
+    [Parameter]
+    public Song Song { get; set; } = new Song() { Number = 1 };
 
-	[Parameter]
-	public int Max { get; set; } = int.MaxValue;
+    [Parameter]
+    public int Max { get; set; } = int.MaxValue;
 
-	[Parameter]
-	public EventCallback<Song> OnSongUpdate { get; set; }
+    [Parameter]
+    public EventCallback<Song> OnSongUpdate { get; set; }
 
-	[Parameter]
-	public EventCallback<Song> OnSongRemoval { get; set; }
+    [Parameter]
+    public EventCallback<Song> OnSongRemoval { get; set; }
 
-	private async Task HandleTitleUpdate(ChangeEventArgs args)
-	{
-		if (OnSongUpdate.HasDelegate)
-		{
-			if (args is not null)
-			{
-				Song.Title = (string)args.Value;
-				await OnSongUpdate.InvokeAsync(Song);
-			}
-		}
-	}
+    private async Task HandleTitleUpdate(ChangeEventArgs args)
+    {
+        if (OnSongUpdate.HasDelegate)
+        {
+            if (args is not null)
+            {
+                Song.Title = (string)args.Value;
+                await OnSongUpdate.InvokeAsync(Song);
+            }
+        }
+    }
 
-	private async Task HandleNumberUpdate(ChangeEventArgs args)
-	{
-		if (OnSongUpdate.HasDelegate)
-		{
-			if (args is not null)
-			{
-				int songNumber;
-				int.TryParse((string)args.Value, out songNumber);
-				Song.Number = songNumber;
-				await OnSongUpdate.InvokeAsync(Song);
-			}
-		}
-	}
+    private async Task HandleNumberUpdate(ChangeEventArgs args)
+    {
+        if (OnSongUpdate.HasDelegate)
+        {
+            if (args is not null)
+            {
+                int.TryParse((string)args.Value, out int songNumber);
+                Song.Number = songNumber;
+                await OnSongUpdate.InvokeAsync(Song);
+            }
+        }
+    }
 
-	private async Task HandleSongDelete()
-	{
-		if (OnSongUpdate.HasDelegate)
-		{
-			await OnSongRemoval.InvokeAsync(Song);
-		}
-	}
+    private async Task HandleSongDelete()
+    {
+        if (OnSongUpdate.HasDelegate)
+        {
+            await OnSongRemoval.InvokeAsync(Song);
+        }
+    }
 }
