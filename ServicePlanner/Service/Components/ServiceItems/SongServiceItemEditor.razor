@@ -24,30 +24,27 @@
     [Parameter]
     public int Max { get; set; } = int.MaxValue;
 
-    [Parameter]
-    public EventCallback<Song> OnSongUpdate { get; set; }
-    
     private async Task HandleTitleUpdate(ChangeEventArgs args)
     {
-        if (OnSongUpdate.HasDelegate)
+        if (OnUpdate.HasDelegate)
         {
             if (args is not null)
             {
                 Song.Title = (string)args.Value;
-                await OnSongUpdate.InvokeAsync(Song);
+                await OnUpdate.InvokeAsync(Song);
             }
         }
     }
 
     private async Task HandleNumberUpdate(ChangeEventArgs args)
     {
-        if (OnSongUpdate.HasDelegate)
+        if (OnUpdate.HasDelegate)
         {
             if (args is not null)
             {
                 int.TryParse((string)args.Value, out int songNumber);
                 Song.Number = songNumber;
-                await OnSongUpdate.InvokeAsync(Song);
+                await OnUpdate.InvokeAsync(Song);
             }
         }
     }

@@ -16,10 +16,7 @@
 @code {
     [Parameter]
     public GeneralServiceItem Item { get; set; }
-
-    [Parameter]
-    public EventCallback<GeneralServiceItem> OnUpdate { get; set; }
-
+    
     private async Task HandleInputUpdate(ChangeEventArgs args)
     {
         if (OnUpdate.HasDelegate)
