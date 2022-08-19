@@ -55,7 +55,7 @@
 
     private async Task HandleSongDelete()
     {
-        if (OnSongUpdate.HasDelegate)
+        if (OnSongRemoval.HasDelegate)
         {
             await OnSongRemoval.InvokeAsync(Song);
         }
