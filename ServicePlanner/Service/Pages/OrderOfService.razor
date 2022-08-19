@@ -29,11 +29,11 @@
 
 			if (type == typeof(Song))
 			{
-				<SongServiceItemEditor Song="(Song)item" OnSongUpdate="HandleServiceItemUpdate" />
+				<SongServiceItemEditor Song="(Song)item" OnSongUpdate="HandleServiceItemUpdate" OnSongRemoval="HandleServiceItemRemoval" />
 			}
 			else if (type == typeof(GeneralServiceItem))
 			{
-				<GeneralServiceItemEditor Item="(GeneralServiceItem)item" OnUpdate="HandleServiceItemUpdate" />
+				<GeneralServiceItemEditor Item="(GeneralServiceItem)item" OnUpdate="HandleServiceItemUpdate" OnDelete="HandleServiceItemRemoval" />
 			}
 		}
 	</div>
@@ -54,5 +54,10 @@
 	private void HandleServiceItemUpdate(ServiceItem item)
 	{
 		this.StateHasChanged();
+	}
+
+	private void HandleServiceItemRemoval(ServiceItem item)
+	{
+		ServiceItems.Remove(item);
 	}
 }

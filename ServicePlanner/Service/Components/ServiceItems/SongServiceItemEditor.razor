@@ -11,6 +11,8 @@
 		@Localize["ServiceEditor.SongEditor.Title.Label"]
 		<input type="text" class="form-control" value="@Song.Title" @oninput="HandleTitleUpdate" />
 	</label>
+
+	<DeleteServiceItem OnClick="HandleSongDelete" />
 </div>
 
 @code {
@@ -22,6 +24,9 @@
 
 	[Parameter]
 	public EventCallback<Song> OnSongUpdate { get; set; }
+
+	[Parameter]
+	public EventCallback<Song> OnSongRemoval { get; set; }
 
 	private async Task HandleTitleUpdate(ChangeEventArgs args)
 	{
@@ -46,6 +51,14 @@
 				Song.Number = songNumber;
 				await OnSongUpdate.InvokeAsync(Song);
 			}
+		}
+	}
+
+	private async Task HandleSongDelete()
+	{
+		if (OnSongUpdate.HasDelegate)
+		{
+			await OnSongRemoval.InvokeAsync(Song);
 		}
 	}
 }
