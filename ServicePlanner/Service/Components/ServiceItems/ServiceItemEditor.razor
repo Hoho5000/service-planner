@@ -1,9 +1,31 @@
 ﻿@using ServicePlanner.Service.Models
 
+@typeparam TItem where TItem : ServiceItem
+
+<div class="mb-3">
+    @ChildContent
+
+    <DeleteServiceItem OnClick="HandleItemDelete" />
+</div>
+
 @code {
     [Parameter]
-    public EventCallback<ServiceItem> OnDelete { get; set; }
+    public EventCallback<TItem> OnDelete { get; set; }
 
     [Parameter]
-    public EventCallback<ServiceItem> OnUpdate { get; set; }
+    public EventCallback<TItem> OnUpdate { get; set; }
+
+    [Parameter]
+    public TItem Item { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    private async Task HandleItemDelete()
+    {
+        if (OnDelete.HasDelegate)
+        {
+            await OnDelete.InvokeAsync(Item);
+        }
+    }
 }

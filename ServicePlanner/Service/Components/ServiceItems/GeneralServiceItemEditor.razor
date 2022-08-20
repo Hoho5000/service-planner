@@ -1,22 +1,17 @@
 ﻿@using ServicePlanner.Service.Models
 
-@inherits ServiceItemEditor
+@inherits ServiceItemEditor<GeneralServiceItem>
 
 @inject IStringLocalizer<Strings> Localize
 
-<div class="mb-3">
+<ServiceItemEditor TItem="GeneralServiceItem" Item="Item" OnDelete="OnDelete" OnUpdate="OnUpdate">
     <label class="form-label">
         @Localize["ServiceEditor.ItemEditor.Label"]
         <input type="text" class="form-control" @oninput="HandleInputUpdate" value="@Item.Content" />
     </label>
-
-    <DeleteServiceItem OnClick="HandleSongDelete" />
-</div>
+</ServiceItemEditor>
 
 @code {
-    [Parameter]
-    public GeneralServiceItem Item { get; set; }
-    
     private async Task HandleInputUpdate(ChangeEventArgs args)
     {
         if (OnUpdate.HasDelegate)
@@ -26,14 +21,6 @@
                 Item.Content = (string)args.Value;
                 await OnUpdate.InvokeAsync(Item);
             }
-        }
-    }
-
-    private async Task HandleSongDelete()
-    {
-        if (OnDelete.HasDelegate)
-        {
-            await OnDelete.InvokeAsync(Item);
         }
     }
 }

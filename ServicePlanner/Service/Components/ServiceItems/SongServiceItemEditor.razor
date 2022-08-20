@@ -1,25 +1,20 @@
 ﻿@using ServicePlanner.Data.Music
 
-@inherits ServiceItemEditor
+@inherits ServiceItemEditor<Song>
 
 @inject IStringLocalizer<Strings> Localize
 
-<div class="mb-3">
+<ServiceItemEditor TItem="Song" Item="Item" OnDelete="OnDelete" OnUpdate="OnUpdate">
     <label class="form-label">
         @Localize["ServiceEditor.SongEditor.Number.Label"]
-        <input type="number" class="form-control" min="1" max="@Max" value="@Song.Number" @oninput="HandleNumberUpdate" />
+        <input type="number" class="form-control" min="1" max="@Max" value="@Item.Number" @oninput="HandleNumberUpdate" />
     </label>
     <label class="form-label">
         @Localize["ServiceEditor.SongEditor.Title.Label"]
-        <input type="text" class="form-control" value="@Song.Title" @oninput="HandleTitleUpdate" />
+        <input type="text" class="form-control" value="@Item.Title" @oninput="HandleTitleUpdate" />
     </label>
-
-    <DeleteServiceItem OnClick="HandleSongDelete" />
-</div>
-
+</ServiceItemEditor>
 @code {
-    [Parameter]
-    public Song Song { get; set; } = new Song() { Number = 1 };
 
     [Parameter]
     public int Max { get; set; } = int.MaxValue;
@@ -30,8 +25,8 @@
         {
             if (args is not null)
             {
-                Song.Title = (string)args.Value;
-                await OnUpdate.InvokeAsync(Song);
+                Item.Title = (string)args.Value;
+                await OnUpdate.InvokeAsync(Item);
             }
         }
     }
@@ -43,17 +38,9 @@
             if (args is not null)
             {
                 int.TryParse((string)args.Value, out int songNumber);
-                Song.Number = songNumber;
-                await OnUpdate.InvokeAsync(Song);
+                Item.Number = songNumber;
+                await OnUpdate.InvokeAsync(Item);
             }
-        }
-    }
-
-    private async Task HandleSongDelete()
-    {
-        if (OnDelete.HasDelegate)
-        {
-            await OnDelete.InvokeAsync(Song);
         }
     }
 }
