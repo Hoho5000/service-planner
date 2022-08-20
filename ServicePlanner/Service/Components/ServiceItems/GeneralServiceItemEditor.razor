@@ -4,7 +4,7 @@
 
 @inject IStringLocalizer<Strings> Localize
 
-<ServiceItemEditor TItem="GeneralServiceItem" Item="Item" OnDelete="OnDelete" OnUpdate="OnUpdate">
+<ServiceItemEditor TItem="GeneralServiceItem" Item="Item" OnMove="OnMove" OnDelete="OnDelete" OnUpdate="OnUpdate">
     <label class="form-label">
         @Localize["ServiceEditor.ItemEditor.Label"]
         <input type="text" class="form-control" @oninput="HandleInputUpdate" value="@Item.Content" />

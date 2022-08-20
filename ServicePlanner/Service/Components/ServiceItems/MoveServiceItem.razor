@@ -1,0 +1,32 @@
+﻿<button type="button" class="btn button-danger" @onclick="HandleUpClick">↑</button>
+<button type="button" class="btn button-danger" @onclick="HandleDownClick">↓</button>
+
+@code {
+    [Parameter]
+    public EventCallback<MoveDirection> OnMove { get; set; }
+
+    private async Task HandleUpClick(MouseEventArgs args)
+    {
+        if (!EventIsValid())
+        {
+            return;
+        }
+
+        await OnMove.InvokeAsync(MoveDirection.Up);
+    }
+
+    private async Task HandleDownClick(MouseEventArgs args)
+    {
+        if (!EventIsValid())
+        {
+            return;
+        }
+
+        await OnMove.InvokeAsync(MoveDirection.Down);
+    }
+
+    private bool EventIsValid()
+    {
+        return OnMove.HasDelegate;
+    }
+}

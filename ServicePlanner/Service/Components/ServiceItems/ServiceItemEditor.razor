@@ -5,6 +5,7 @@
 <div class="mb-3">
     @ChildContent
 
+    <MoveServiceItem OnMove="HandleOnMove" />
     <DeleteServiceItem OnDelete="HandleItemDelete" />
 </div>
 
@@ -14,6 +15,9 @@
 
     [Parameter]
     public EventCallback<TItem> OnUpdate { get; set; }
+
+    [Parameter]
+    public EventCallback<MoveEventInfo> OnMove { get; set; }
 
     [Parameter]
     public TItem Item { get; set; }
@@ -26,6 +30,19 @@
         if (OnDelete.HasDelegate)
         {
             await OnDelete.InvokeAsync(Item);
+        }
+    }
+
+    private async Task HandleOnMove(MoveDirection direction)
+    {
+        if (OnMove.HasDelegate)
+        {
+            var eventInfo = new MoveEventInfo()
+                {
+                    Item = Item,
+                    Direction = direction,
+                };
+            await OnMove.InvokeAsync(eventInfo);
         }
     }
 }
