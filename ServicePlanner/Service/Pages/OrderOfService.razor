@@ -23,7 +23,7 @@
 
 <form>
     <div class="form-group">
-        @foreach (var item in ServiceItems)
+        @foreach (var item in Service.Items)
         {
             var type = item.GetType();
 
@@ -38,17 +38,17 @@
         }
     </div>
 
-    <GenerateServicePdf ServiceItems="ServiceItems" />
+    <GenerateServicePdf Service="Service" />
 </form>
 
 <hr />
 
 @code {
-    private List<ServiceItem> ServiceItems { get; set; } = new List<ServiceItem>();
+    private Service Service { get; set; } = new Service();
 
     private void HandleServiceItemAdd(ServiceItem item)
     {
-        ServiceItems.Add(item);
+        Service.Items.Add(item);
     }
 
     private void HandleServiceItemUpdate(ServiceItem item)
@@ -58,7 +58,7 @@
 
     private void HandleServiceItemDelete(ServiceItem item)
     {
-        ServiceItems.Remove(item);
+        Service.Items.Remove(item);
     }
 
     private void HandleServiceItemMove(MoveEventInfo eventInfo)
@@ -77,27 +77,27 @@
 
     private void MoveItemUp(ServiceItem item)
     {
-        if (ServiceItems.First() == item)
+        if (Service.Items.First() == item)
         {
             return;
         }
 
-        int oldIndex = ServiceItems.IndexOf(item);
-        ServiceItems.Remove(item);
+        int oldIndex = Service.Items.IndexOf(item);
+        Service.Items.Remove(item);
         int newIndex = --oldIndex;
-        ServiceItems.Insert(newIndex, item);
+        Service.Items.Insert(newIndex, item);
     }
 
     private void MoveItemDown(ServiceItem item)
     {
-        if (ServiceItems.Last() == item)
+        if (Service.Items.Last() == item)
         {
             return;
         }
 
-        int oldIndex = ServiceItems.IndexOf(item);
-        ServiceItems.Remove(item);
+        int oldIndex = Service.Items.IndexOf(item);
+        Service.Items.Remove(item);
         int newIndex = ++oldIndex;
-        ServiceItems.Insert(newIndex, item);
+        Service.Items.Insert(newIndex, item);
     }
 }

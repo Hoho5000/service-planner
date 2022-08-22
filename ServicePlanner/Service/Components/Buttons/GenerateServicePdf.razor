@@ -12,7 +12,7 @@
 
 @code {
     [Parameter]
-    public List<ServiceItem> ServiceItems { get; set; } = new List<ServiceItem>();
+    public Service Service { get; set; }
 
     private void HandleClick(MouseEventArgs args)
     {
@@ -45,7 +45,7 @@
     private string RenderComponent()
     {
         var renderer = new ComponentRenderer<OrderOfServiceDisplay>();
-        renderer.Set(c => c.ServiceItems, ServiceItems);
+        renderer.Set(c => c.ServiceItems, Service.Items);
         renderer.AddService<IStringLocalizer<Strings>>(Localize);
         renderer.UseLayout<OrderOfServiceLayout>();
         return renderer.Render();
