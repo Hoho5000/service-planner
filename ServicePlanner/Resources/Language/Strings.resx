@@ -168,6 +168,27 @@
   <data name="ServiceEditor.SongEditor.Title.Label" xml:space="preserve">
     <value>Title</value>
   </data>
+  <data name="ServiceWizard.Button.Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="ServiceWizard.Button.Finish" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="ServiceWizard.Button.Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="ServiceWizard.Menu.Title" xml:space="preserve">
+    <value>Create a Service</value>
+  </data>
+  <data name="ServiceWizard.Page.Title" xml:space="preserve">
+    <value>Service Wizard</value>
+  </data>
+  <data name="ServiceWizard.Step.Details.Title" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="ServiceWizard.Step.OrderOfService.Title" xml:space="preserve">
+    <value>Order of Service</value>
+  </data>
   <data name="Songs.IncludeRandom" xml:space="preserve">
     <value>Include random songs</value>
   </data>

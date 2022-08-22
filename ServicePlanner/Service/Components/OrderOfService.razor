@@ -1,13 +1,10 @@
-﻿@page "/orderofservice"
-
-@using ServicePlanner.Data.Music
+﻿@using ServicePlanner.Data.Music
 @using ServicePlanner.Service.Components.ServiceItems
 @using ServicePlanner.Service.Components.Buttons
 @using ServicePlanner.Service.Models
 
 @inject IStringLocalizer<Strings> Localize
 
-<h1>@Localize["OrderOfService.Title"]</h1>
 <p>@Localize["OrderOfService.Description"]</p>
 
 <form>
@@ -37,14 +34,11 @@
             }
         }
     </div>
-
-    <GenerateServicePdf Service="Service" />
 </form>
 
-<hr />
-
 @code {
-    private Service Service { get; set; } = new Service();
+    [Parameter]
+    public Service Service { get; set; } = new Service();
 
     private void HandleServiceItemAdd(ServiceItem item)
     {

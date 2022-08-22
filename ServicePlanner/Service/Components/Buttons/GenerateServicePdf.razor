@@ -5,7 +5,7 @@
 @using WkHtmlToPdfDotNet.Contracts
 
 @inject IJSRuntime Js
-@inject IConverter PdfConverter
+@inject PdfService PdfService
 @inject IStringLocalizer<Strings> Localize
 
 <button type="button" class="btn btn-primary" @onclick="HandleClick">@Localize["ServiceEditor.GeneratePdf.Label"]</button>
@@ -16,43 +16,12 @@
 
     private void HandleClick(MouseEventArgs args)
     {
-        GeneratePdf();
-    }
-
-    private void GeneratePdf()
-    {
-        var doc = new HtmlToPdfDocument()
-            {
-                GlobalSettings = {
-                    ColorMode = ColorMode.Color,
-                    Orientation = Orientation.Portrait,
-                    PaperSize = PaperKind.A4,
-                    Margins = new MarginSettings() { Top = 10 },
-                },
-                Objects = {
-                new ObjectSettings()
-                {
-                    HtmlContent = RenderComponent()
-                },
-            }
-            };
-
-        byte[] pdfData = PdfConverter.Convert(doc);
-
+        var pdfData = PdfService.GenerateServicePdf(Service);
         DownloadFile(pdfData);
-    }
-
-    private string RenderComponent()
-    {
-        var renderer = new ComponentRenderer<OrderOfServiceDisplay>();
-        renderer.Set(c => c.ServiceItems, Service.Items);
-        renderer.AddService<IStringLocalizer<Strings>>(Localize);
-        renderer.UseLayout<OrderOfServiceLayout>();
-        return renderer.Render();
     }
 
     private void DownloadFile(byte[] pdfData)
     {
-        FileUtility.SaveAs(Js, "OrderOfService.pdf", pdfData);
+        FileUtility.SaveAs(Js, "Service.pdf", pdfData);
     }
 }

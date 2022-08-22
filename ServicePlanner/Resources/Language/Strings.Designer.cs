@@ -22,7 +22,7 @@ namespace ServicePlanner.Resources.Language {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Strings {
+    public class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ServicePlanner.Resources.Language {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ServicePlanner.Resources.Language.Strings", typeof(Strings).Assembly);
@@ -51,7 +51,7 @@ namespace ServicePlanner.Resources.Language {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Created by Tyler Poradun..
         /// </summary>
-        internal static string About_Description {
+        public static string About_Description {
             get {
                 return ResourceManager.GetString("About.Description", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
-        internal static string About_Title {
+        public static string About_Title {
             get {
                 return ResourceManager.GetString("About.Title", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Version: {0}.
         /// </summary>
-        internal static string About_Version {
+        public static string About_Version {
             get {
                 return ResourceManager.GetString("About.Version", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Service Planner is a tool that can be used to help plan church services. Select an option from the menu on the left to get started..
         /// </summary>
-        internal static string App_Description {
+        public static string App_Description {
             get {
                 return ResourceManager.GetString("App.Description", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Service Planner.
         /// </summary>
-        internal static string App_Title {
+        public static string App_Title {
             get {
                 return ResourceManager.GetString("App.Title", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
-        internal static string Home_Navigation_Title {
+        public static string Home_Navigation_Title {
             get {
                 return ResourceManager.GetString("Home.Navigation.Title", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Plan your order of service with music and other items..
         /// </summary>
-        internal static string OrderOfService_Description {
+        public static string OrderOfService_Description {
             get {
                 return ResourceManager.GetString("OrderOfService.Description", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Order of Service.
         /// </summary>
-        internal static string OrderOfService_Title {
+        public static string OrderOfService_Title {
             get {
                 return ResourceManager.GetString("OrderOfService.Title", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Add Service Item.
         /// </summary>
-        internal static string ServiceEditor_AddGeneralServiceItem {
+        public static string ServiceEditor_AddGeneralServiceItem {
             get {
                 return ResourceManager.GetString("ServiceEditor.AddGeneralServiceItem", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Add Song.
         /// </summary>
-        internal static string ServiceEditor_AddSongServiceItem {
+        public static string ServiceEditor_AddSongServiceItem {
             get {
                 return ResourceManager.GetString("ServiceEditor.AddSongServiceItem", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Generate PDF.
         /// </summary>
-        internal static string ServiceEditor_GeneratePdf_Label {
+        public static string ServiceEditor_GeneratePdf_Label {
             get {
                 return ResourceManager.GetString("ServiceEditor.GeneratePdf.Label", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Change me.
         /// </summary>
-        internal static string ServiceEditor_ItemEditor_Default {
+        public static string ServiceEditor_ItemEditor_Default {
             get {
                 return ResourceManager.GetString("ServiceEditor.ItemEditor.Default", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Service item.
         /// </summary>
-        internal static string ServiceEditor_ItemEditor_Label {
+        public static string ServiceEditor_ItemEditor_Label {
             get {
                 return ResourceManager.GetString("ServiceEditor.ItemEditor.Label", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Service Items.
         /// </summary>
-        internal static string ServiceEditor_ServiceEditor_Header {
+        public static string ServiceEditor_ServiceEditor_Header {
             get {
                 return ResourceManager.GetString("ServiceEditor.ServiceEditor.Header", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Song.
         /// </summary>
-        internal static string ServiceEditor_SongEditor_Number_Label {
+        public static string ServiceEditor_SongEditor_Number_Label {
             get {
                 return ResourceManager.GetString("ServiceEditor.SongEditor.Number.Label", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Change me.
         /// </summary>
-        internal static string ServiceEditor_SongEditor_Title_Default {
+        public static string ServiceEditor_SongEditor_Title_Default {
             get {
                 return ResourceManager.GetString("ServiceEditor.SongEditor.Title.Default", resourceCulture);
             }
@@ -207,16 +207,79 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
-        internal static string ServiceEditor_SongEditor_Title_Label {
+        public static string ServiceEditor_SongEditor_Title_Label {
             get {
                 return ResourceManager.GetString("ServiceEditor.SongEditor.Title.Label", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string ServiceWizard_Button_Back {
+            get {
+                return ResourceManager.GetString("ServiceWizard.Button.Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finish.
+        /// </summary>
+        public static string ServiceWizard_Button_Finish {
+            get {
+                return ResourceManager.GetString("ServiceWizard.Button.Finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string ServiceWizard_Button_Next {
+            get {
+                return ResourceManager.GetString("ServiceWizard.Button.Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a Service.
+        /// </summary>
+        public static string ServiceWizard_Menu_Title {
+            get {
+                return ResourceManager.GetString("ServiceWizard.Menu.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service Wizard.
+        /// </summary>
+        public static string ServiceWizard_Page_Title {
+            get {
+                return ResourceManager.GetString("ServiceWizard.Page.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string ServiceWizard_Step_Details_Title {
+            get {
+                return ResourceManager.GetString("ServiceWizard.Step.Details.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order of Service.
+        /// </summary>
+        public static string ServiceWizard_Step_OrderOfService_Title {
+            get {
+                return ResourceManager.GetString("ServiceWizard.Step.OrderOfService.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Include random songs.
         /// </summary>
-        internal static string Songs_IncludeRandom {
+        public static string Songs_IncludeRandom {
             get {
                 return ResourceManager.GetString("Songs.IncludeRandom", resourceCulture);
             }
@@ -225,7 +288,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Number of songs in book.
         /// </summary>
-        internal static string Songs_NumberInBook {
+        public static string Songs_NumberInBook {
             get {
                 return ResourceManager.GetString("Songs.NumberInBook", resourceCulture);
             }
@@ -234,7 +297,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Number of songs to include in service.
         /// </summary>
-        internal static string Songs_NumberToInclude {
+        public static string Songs_NumberToInclude {
             get {
                 return ResourceManager.GetString("Songs.NumberToInclude", resourceCulture);
             }
@@ -243,7 +306,7 @@ namespace ServicePlanner.Resources.Language {
         /// <summary>
         ///   Looks up a localized string similar to Songs.
         /// </summary>
-        internal static string Songs_Title {
+        public static string Songs_Title {
             get {
                 return ResourceManager.GetString("Songs.Title", resourceCulture);
             }

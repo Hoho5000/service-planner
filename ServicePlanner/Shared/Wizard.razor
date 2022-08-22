@@ -1,0 +1,101 @@
+﻿@using ServicePlanner.Service.Components.Buttons
+@inject IStringLocalizer<Strings> Localize
+
+<CascadingValue Value="this">
+    <div>
+        <ul class="nav nav-pills nav-justified">
+            @foreach (var step in Steps)
+            {
+                <li id="step-@(StepIndex(step) + 1)" class="nav-item">
+                    <a class="nav-link @((ActiveStep == step) ? "active" : "")" href="javascript: void(0)" @onclick="@(e=> SetActive(step))">@step.Name</a>
+                </li>
+            }
+        </ul>
+        <div id="container-fluid">
+            @ChildContent
+        </div>
+    </div>
+
+    <hr />
+    <div class="btn-group">
+        <button class="btn btn-secondary" type="button" disabled="@(ActiveStepIndex == 0)" @onclick="GoBack">@Localize["ServiceWizard.Button.Back"]</button>
+        @if (!IsLastStep)
+        {
+            <button class="btn btn-primary" type="button" @onclick="GoForward">@Localize["ServiceWizard.Button.Next"]</button>
+        }
+        else
+        {
+            <button class="btn btn-primary" type="button" @onclick="HandleFinishClick">@Localize["ServiceWizard.Button.Finish"]</button>
+        }
+    </div>
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public WizardStep ActiveStep { get; set; }
+
+    [Parameter]
+    public EventCallback OnFinish { get; set; }
+
+    public int ActiveStepIndex { get; internal set; }
+
+    public bool IsLastStep { get; internal set; }
+
+    protected internal List<WizardStep> Steps = new List<WizardStep>();
+
+    protected internal void GoBack()
+    {
+        if (ActiveStepIndex > 0)
+        {
+            SetActive(Steps[ActiveStepIndex - 1]);
+        }
+    }
+
+    protected internal void GoForward()
+    {
+        if (ActiveStepIndex < Steps.Count - 1)
+        {
+            SetActive(Steps[(Steps.IndexOf(ActiveStep) + 1)]);
+        }
+    }
+
+    protected internal void SetActive(WizardStep step)
+    {
+        ActiveStep = step ?? throw new ArgumentNullException(nameof(step));
+
+        ActiveStepIndex = StepIndex(step);
+        IsLastStep = ActiveStepIndex == Steps.Count - 1 ? true : false;
+    }
+
+    public int StepIndex(WizardStep step)
+    {
+        return Steps.IndexOf(step);
+    }
+
+    protected internal void AddStep(WizardStep step)
+    {
+        Steps.Add(step);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            SetActive(Steps[0]);
+            StateHasChanged();
+        }
+    }
+
+    private async Task HandleFinishClick(MouseEventArgs args)
+    {
+        if (!OnFinish.HasDelegate)
+        {
+            return;
+        }
+
+        await OnFinish.InvokeAsync();
+    }
+}

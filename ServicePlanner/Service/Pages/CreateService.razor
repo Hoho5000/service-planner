@@ -1,0 +1,28 @@
+﻿@page "/create-service"
+
+@using ServicePlanner.Service.Components
+
+@inject IJSRuntime Js
+@inject PdfService PdfService
+@inject IStringLocalizer<Strings> Localize
+
+<Wizard OnFinish="HandleServiceCreation">
+    <WizardStep Name="@Localize["ServiceWizard.Step.OrderOfService.Title"]">
+        <OrderOfService Service="Service"/>
+    </WizardStep>
+</Wizard>
+
+@code {
+    private Models.Service Service { get; } = new Models.Service();
+
+    private void HandleServiceCreation()
+    {
+        var pdfData = PdfService.GenerateServicePdf(Service);
+        DownloadFile(pdfData);
+    }
+
+    private void DownloadFile(byte[] pdfData)
+    {
+        FileUtility.SaveAs(Js, "Service.pdf", pdfData);
+    }
+}
