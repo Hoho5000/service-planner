@@ -45,7 +45,7 @@ namespace ServicePlanner.Shared
 
         private string RenderComponent(Service.Models.Service service)
         {
-            var renderer = new ComponentRenderer<OrderOfServiceDisplay>();
+            var renderer = new ComponentRenderer<ServiceDisplay>();
             renderer.Set(c => c.Service, service);
             renderer.AddService(localizer);
             renderer.UseLayout<OrderOfServiceLayout>();
