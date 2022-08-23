@@ -1,4 +1,4 @@
-﻿namespace ServicePlanner.Service.Components.ServiceItems
+﻿namespace ServicePlanner.Service.Wizard.OrderOfService
 {
     public enum MoveDirection
     {

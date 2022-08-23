@@ -1,5 +1,5 @@
-﻿using ServicePlanner.Service;
-using ServicePlanner.Service.Models;
+﻿using ServicePlanner.Service.Models;
+using ServicePlanner.Service.Output;
 
 namespace ServicePlanner.Data.Music
 {

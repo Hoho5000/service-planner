@@ -1,7 +1,7 @@
 ﻿using ServicePlanner.Data.Music;
 using ServicePlanner.Service.Models;
 
-namespace ServicePlanner.Service
+namespace ServicePlanner.Service.Output
 {
     public class ServiceItemFormatter
     {

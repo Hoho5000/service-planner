@@ -1,4 +1,6 @@
-﻿namespace ServicePlanner.Service.Models
+﻿using ServicePlanner.Service.Output;
+
+namespace ServicePlanner.Service.Models
 {
     public class GeneralServiceItem : ServiceItem
     {

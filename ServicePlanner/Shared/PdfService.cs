@@ -1,10 +1,9 @@
 ﻿using BlazorTemplater;
 using Microsoft.Extensions.Localization;
-using ServicePlanner.Service.Components;
-using ServicePlanner.Service;
 using WkHtmlToPdfDotNet;
 using WkHtmlToPdfDotNet.Contracts;
 using ServicePlanner.Resources.Language;
+using ServicePlanner.Service.Output;
 
 namespace ServicePlanner.Shared
 {

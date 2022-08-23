@@ -1,6 +1,6 @@
 ﻿using ServicePlanner.Service.Models;
 
-namespace ServicePlanner.Service.Components.ServiceItems
+namespace ServicePlanner.Service.Wizard.OrderOfService
 {
     public class MoveEventInfo
     {
