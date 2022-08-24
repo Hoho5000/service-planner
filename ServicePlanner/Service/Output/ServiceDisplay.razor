@@ -3,7 +3,6 @@
 @inject IStringLocalizer<Strings> Localize
 
 <style>
-    @LayoutStyle
 </style>
 
 <h3>@Localize["OrderOfService.Title"]</h3>
@@ -18,8 +17,4 @@
 @code {
     [Parameter]
     public Service Service { get; set; } = new Service();
-
-    [Parameter]
-    public string LayoutStyle { get; set; }
-
 }
