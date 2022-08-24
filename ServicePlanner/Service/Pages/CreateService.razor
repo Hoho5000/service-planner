@@ -1,5 +1,6 @@
 ﻿@page "/create-service"
 
+@using ServicePlanner.Service.Wizard.General
 @using ServicePlanner.Service.Wizard.OrderOfService
 
 @inject IJSRuntime Js
@@ -7,13 +8,16 @@
 @inject IStringLocalizer<Strings> Localize
 
 <Wizard OnFinish="HandleServiceCreation">
+    <WizardStep Name="@Localize["ServiceWizard.Step.General.Title"]">
+        <GeneralEditor Service="Service" />
+    </WizardStep>
     <WizardStep Name="@Localize["ServiceWizard.Step.OrderOfService.Title"]">
         <OrderOfServiceEditor Service="Service"/>
     </WizardStep>
 </Wizard>
 
 @code {
-    private Models.Service Service { get; } = new Models.Service();
+    private Models.Service Service { get; } = new Models.Service() {Date = DateTime.Today };
 
     private void HandleServiceCreation()
     {

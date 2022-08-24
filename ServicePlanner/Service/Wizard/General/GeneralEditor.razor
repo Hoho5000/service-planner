@@ -1,0 +1,17 @@
+﻿@using ServicePlanner.Service.Models
+
+@inject IStringLocalizer<Strings> Localize
+
+<form>
+    <div class="form-group">
+        <label class="form-label">
+            @Localize["GeneralEditor.Controls.Date.Label"]
+            <input type="date" @bind="Service.Date" />
+        </label>
+    </div>
+</form>
+
+@code {
+    [Parameter]
+    public Service Service { get; set; }
+}

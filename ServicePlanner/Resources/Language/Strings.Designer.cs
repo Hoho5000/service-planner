@@ -106,6 +106,15 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Service Date.
+        /// </summary>
+        public static string GeneralEditor_Controls_Date_Label {
+            get {
+                return ResourceManager.GetString("GeneralEditor.Controls.Date.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home_Navigation_Title {
@@ -264,6 +273,15 @@ namespace ServicePlanner.Resources.Language {
         public static string ServiceWizard_Step_Details_Title {
             get {
                 return ResourceManager.GetString("ServiceWizard.Step.Details.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General Details.
+        /// </summary>
+        public static string ServiceWizard_Step_General_Title {
+            get {
+                return ResourceManager.GetString("ServiceWizard.Step.General.Title", resourceCulture);
             }
         }
         

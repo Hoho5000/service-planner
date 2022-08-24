@@ -132,6 +132,9 @@
   <data name="App.Title" xml:space="preserve">
     <value>Service Planner</value>
   </data>
+  <data name="GeneralEditor.Controls.Date.Label" xml:space="preserve">
+    <value>Service Date</value>
+  </data>
   <data name="Home.Navigation.Title" xml:space="preserve">
     <value>Home</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="ServiceWizard.Step.Details.Title" xml:space="preserve">
     <value>Details</value>
+  </data>
+  <data name="ServiceWizard.Step.General.Title" xml:space="preserve">
+    <value>General Details</value>
   </data>
   <data name="ServiceWizard.Step.OrderOfService.Title" xml:space="preserve">
     <value>Order of Service</value>
