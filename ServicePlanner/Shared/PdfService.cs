@@ -27,7 +27,7 @@ namespace ServicePlanner.Shared
             {
                 GlobalSettings = {
                     ColorMode = ColorMode.Color,
-                    Orientation = Orientation.Portrait,
+                    Orientation = Orientation.Landscape,
                     PaperSize = PaperKind.A4,
                     Margins = new MarginSettings() { Top = 10 },
                 },
