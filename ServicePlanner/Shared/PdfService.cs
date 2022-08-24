@@ -3,7 +3,7 @@ using Microsoft.Extensions.Localization;
 using WkHtmlToPdfDotNet;
 using WkHtmlToPdfDotNet.Contracts;
 using ServicePlanner.Resources.Language;
-using ServicePlanner.Service.Output;
+using ServicePlanner.Bulletin;
 
 namespace ServicePlanner.Shared
 {
