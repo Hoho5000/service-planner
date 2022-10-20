@@ -1,5 +1,4 @@
-﻿using ServicePlanner.Service.Models;
-using ServicePlanner.Service.Output;
+﻿using ServicePlanner.Data.Service;
 
 namespace ServicePlanner.Data.Music
 {
@@ -9,7 +8,7 @@ namespace ServicePlanner.Data.Music
 
         public string Title { get; set; }
 
-        public string Format(BasicServiceItemFormatter formatter)
+        public string Format(ServiceItemFormatter formatter)
         {
             return formatter.FormatServiceItem(this);
         }

@@ -1,11 +1,11 @@
 ﻿using ServicePlanner.Data.Music;
-using ServicePlanner.Service.Models;
 
-namespace ServicePlanner.Service.Output
+namespace ServicePlanner.Data.Service
 {
     public interface ServiceItemFormatter
     {
         string FormatServiceItem(GeneralServiceItem item);
+
         string FormatServiceItem(Song song);
     }
 }

@@ -1,4 +1,4 @@
-﻿using ServicePlanner.Service.Models;
+﻿using ServicePlanner.Data.Service;
 
 namespace ServicePlanner.Service.Wizard.OrderOfService
 {

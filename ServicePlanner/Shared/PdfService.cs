@@ -19,7 +19,7 @@ namespace ServicePlanner.Shared
             pdfConverter = converter;
         }
 
-        public byte[] GenerateServicePdf(Service.Models.Service service)
+        public byte[] GenerateServicePdf(Data.Service.Service service)
         {
             string component = RenderComponent(service);
 
@@ -42,7 +42,7 @@ namespace ServicePlanner.Shared
             return pdfConverter.Convert(doc);
         }
 
-        private string RenderComponent(Service.Models.Service service)
+        private string RenderComponent(Data.Service.Service service)
         {
             var renderer = new ComponentRenderer<ServiceDisplay>();
             renderer.Set(c => c.Service, service);

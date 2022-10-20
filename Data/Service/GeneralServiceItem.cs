@@ -1,12 +1,12 @@
-﻿using ServicePlanner.Service.Output;
+﻿
 
-namespace ServicePlanner.Service.Models
+namespace ServicePlanner.Data.Service
 {
     public class GeneralServiceItem : ServiceItem
     {
         public string Content { get; set; }
 
-        public string Format(BasicServiceItemFormatter formatter)
+        public string Format(ServiceItemFormatter formatter)
         {
             return formatter.FormatServiceItem(this);
         }

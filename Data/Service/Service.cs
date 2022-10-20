@@ -1,4 +1,4 @@
-﻿namespace ServicePlanner.Service.Models
+﻿namespace ServicePlanner.Data.Service
 {
     public class Service
     {
