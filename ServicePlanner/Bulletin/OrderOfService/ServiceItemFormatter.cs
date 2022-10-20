@@ -3,16 +3,9 @@ using ServicePlanner.Service.Models;
 
 namespace ServicePlanner.Service.Output
 {
-    public class ServiceItemFormatter
+    public interface ServiceItemFormatter
     {
-        public string FormatServiceItem(Song song)
-        {
-            return $"{song.Number} - {song.Title}";
-        }
-
-        public string FormatServiceItem(GeneralServiceItem item)
-        {
-            return item.Content;
-        }
+        string FormatServiceItem(GeneralServiceItem item);
+        string FormatServiceItem(Song song);
     }
 }

@@ -6,7 +6,7 @@ namespace ServicePlanner.Service.Models
     {
         public string Content { get; set; }
 
-        public string Format(ServiceItemFormatter formatter)
+        public string Format(BasicServiceItemFormatter formatter)
         {
             return formatter.FormatServiceItem(this);
         }
