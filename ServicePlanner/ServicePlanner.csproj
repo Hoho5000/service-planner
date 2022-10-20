@@ -81,4 +81,17 @@
       </EmbeddedResource>
     </ItemGroup>
 
+  <Target Name="RemoveCollidingDepsJson" AfterTargets="GetPackagingOutputs" BeforeTargets="_ComputeAppxPackagePayload">
+    <!-- If conflicting build and publish deps.json files are present, use only the publish deps.json, 
+            and remove the corresponding build deps.json. -->
+    <ItemGroup Condition="'@(PackagingOutputs)'!=''" >
+      <_PublishDepsJson Include="@(PackagingOutputs->WithMetadataValue('OutputGroup', 'PublishItemsOutputGroupOutput'))"
+                Condition="$([System.String]::Copy('%(FileName)%(Extension)').EndsWith('.deps.json'))" />
+      <_BuildDepsJson Include="@(PackagingOutputs->WithMetadataValue('OutputGroup', 'GetCopyToOutputDirectoryItemsOutputGroup'))"
+                Condition="$([System.String]::Copy('%(FileName)%(Extension)').EndsWith('.deps.json'))" />
+      <PackagingOutputs Condition="'@(_PublishDepsJson)'!='' and '@(_BuildDepsJson)'!=''" Remove="@(_BuildDepsJson)"/>
+    </ItemGroup>
+  </Target>
+
 </Project>
+
