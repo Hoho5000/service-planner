@@ -124,6 +124,96 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string Institution_Address_City_Label {
+            get {
+                return ResourceManager.GetString("Institution.Address.City.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Institution_Address_Country_Label {
+            get {
+                return ResourceManager.GetString("Institution.Address.Country.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Postal Code.
+        /// </summary>
+        public static string Institution_Address_PostalCode_Label {
+            get {
+                return ResourceManager.GetString("Institution.Address.PostalCode.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Region.
+        /// </summary>
+        public static string Institution_Address_Region_Label {
+            get {
+                return ResourceManager.GetString("Institution.Address.Region.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Street.
+        /// </summary>
+        public static string Institution_Address_Street_Label {
+            get {
+                return ResourceManager.GetString("Institution.Address.Street.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string Institution_Address_Title {
+            get {
+                return ResourceManager.GetString("Institution.Address.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Institution_General_Name_Label {
+            get {
+                return ResourceManager.GetString("Institution.General.Name.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone Number.
+        /// </summary>
+        public static string Institution_General_Phone_Label {
+            get {
+                return ResourceManager.GetString("Institution.General.Phone.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General Details.
+        /// </summary>
+        public static string Institution_General_Title {
+            get {
+                return ResourceManager.GetString("Institution.General.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Institution.
+        /// </summary>
+        public static string Institution_Menu_Title {
+            get {
+                return ResourceManager.GetString("Institution.Menu.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plan your order of service with music and other items..
         /// </summary>
         public static string OrderOfService_Description {

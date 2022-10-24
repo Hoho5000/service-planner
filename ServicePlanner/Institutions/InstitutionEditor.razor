@@ -1,0 +1,88 @@
+﻿@page "/institution"
+
+@using System.Reflection
+@using ServicePlanner.Data
+
+@inject IStringLocalizer<Strings> Localize
+@inject DataContext Context
+
+<EditForm Model=@Institution OnValidSubmit="ValidFormSubmitted">
+    <div class="form-group">
+        <h4>@Localize["Institution.General.Title"]</h4>
+        <div class="mb-3">
+            <label class="form-label">
+                @Localize["Institution.General.Name.Label"]
+                <input type="text" class="form-control" @bind="Institution.Name" />
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                @Localize["Institution.General.Phone.Label"]
+                <input type="text" class="form-control" @bind="Institution.Phone" />
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <h4>@Localize["Institution.Address.Title"]</h4>
+        <div class="mb-3">
+            <label class="form-label">
+                @Localize["Institution.Address.Street.Label"]
+                <input type="text" class="form-control" @bind="Institution.Address.StreetAddress" />
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                @Localize["Institution.Address.City.Label"]
+                <input type="text" class="form-control" @bind="Institution.Address.City" />
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                @Localize["Institution.Address.Region.Label"]
+                <input type="text" class="form-control" @bind="Institution.Address.Region" />
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                @Localize["Institution.Address.PostalCode.Label"]
+                <input type="number" class="form-control" @bind="Institution.Address.PostalCode" />
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">
+                @Localize["Institution.Address.Country.Label"]
+                <input type="text" class="form-control" @bind="Institution.Address.Country" />
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" class="button button--submit">Submit</button>
+</EditForm>
+
+@code {
+    public Institution Institution { get; set; } = new();
+
+    protected override Task OnInitializedAsync()
+    {
+        if (Context.Institutions.Count() > 0)
+        {
+            Institution = Context.Institutions.First();
+        }
+
+        return base.OnInitializedAsync();
+    }
+
+    void ValidFormSubmitted(EditContext editContext)
+    {
+        if (Institution.Id == Guid.Empty)
+        {
+            Context.Institutions.Add(Institution);
+        }
+        else
+        {
+            Context.Institutions.Update(Institution);
+        }
+
+        Context.SaveChanges();
+    }
+}

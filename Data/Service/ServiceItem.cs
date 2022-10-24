@@ -1,7 +1,9 @@
 ﻿namespace ServicePlanner.Data.Service
 {
-    public interface ServiceItem
+    public abstract class ServiceItem
     {
-        public string Format(ServiceItemFormatter formatter);
+        public Guid Id { get; set; }
+
+        public abstract string Format(ServiceItemFormatter formatter);
     }
 }
