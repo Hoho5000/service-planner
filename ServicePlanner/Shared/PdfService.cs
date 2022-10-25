@@ -21,7 +21,7 @@ namespace ServicePlanner.Shared
 
         public byte[] GenerateBulletinPdf(BulletinData data)
         {
-            string component = RenderComponent(data);
+            string insidePage = RenderInsidePage(data);
 
             var doc = new HtmlToPdfDocument()
             {
@@ -34,7 +34,7 @@ namespace ServicePlanner.Shared
                 Objects = {
                     new ObjectSettings()
                     {
-                        HtmlContent = component,
+                        HtmlContent = insidePage,
                     },
                 }
             };
@@ -42,7 +42,7 @@ namespace ServicePlanner.Shared
             return pdfConverter.Convert(doc);
         }
 
-        private string RenderComponent(BulletinData data)
+        private string RenderInsidePage(BulletinData data)
         {
             var renderer = new ComponentRenderer<ServiceDisplay>();
             renderer.Set(c => c.Service, data.Service);
