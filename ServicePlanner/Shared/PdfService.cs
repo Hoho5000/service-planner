@@ -19,9 +19,9 @@ namespace ServicePlanner.Shared
             pdfConverter = converter;
         }
 
-        public byte[] GenerateBulletinPdf(Data.Service.Service service)
+        public byte[] GenerateBulletinPdf(BulletinData data)
         {
-            string component = RenderComponent(service);
+            string component = RenderComponent(data);
 
             var doc = new HtmlToPdfDocument()
             {
@@ -42,12 +42,12 @@ namespace ServicePlanner.Shared
             return pdfConverter.Convert(doc);
         }
 
-        private string RenderComponent(Data.Service.Service service)
+        private string RenderComponent(BulletinData data)
         {
             var renderer = new ComponentRenderer<ServiceDisplay>();
-            renderer.Set(c => c.Service, service);
+            renderer.Set(c => c.Service, data.Service);
             renderer.AddService(localizer);
-            renderer.UseLayout<OrderOfServiceLayout>();
+            renderer.UseLayout<BulletinLayout>();
             return renderer.Render();
         }
     }

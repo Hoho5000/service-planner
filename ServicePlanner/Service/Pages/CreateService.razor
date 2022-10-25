@@ -1,11 +1,14 @@
 ﻿@page "/create-service"
 
+@using ServicePlanner.Bulletin
+@using ServicePlanner.Data
 @using ServicePlanner.Service.Wizard.General
 @using ServicePlanner.Service.Wizard.OrderOfService
 
 @inject IJSRuntime Js
 @inject PdfService PdfService
 @inject IStringLocalizer<Strings> Localize
+@inject DataContext Context
 
 <Wizard OnFinish="HandleServiceCreation">
     <WizardStep Name="@Localize["ServiceWizard.Step.General.Title"]">
@@ -21,7 +24,16 @@
 
     private void HandleServiceCreation()
     {
-        var pdfData = PdfService.GenerateBulletinPdf(Service);
+        var data = new BulletinData() { Service = Service };
+
+        if (Context.Institutions.Count() > 0)
+        {
+            data.Institution = Context.Institutions.First();
+        }
+
+        data.Service = Service;
+
+        var pdfData = PdfService.GenerateBulletinPdf(data);
         DownloadFile(pdfData);
     }
 
