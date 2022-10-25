@@ -168,6 +168,9 @@
   <data name="Institution.Menu.Title" xml:space="preserve">
     <value>Institution</value>
   </data>
+  <data name="Institution.Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
   <data name="OrderOfService.Description" xml:space="preserve">
     <value>Plan your order of service with music and other items.</value>
   </data>

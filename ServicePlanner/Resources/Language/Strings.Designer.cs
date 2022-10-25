@@ -214,6 +214,15 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        public static string Institution_Update {
+            get {
+                return ResourceManager.GetString("Institution.Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plan your order of service with music and other items..
         /// </summary>
         public static string OrderOfService_Description {
