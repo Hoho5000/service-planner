@@ -19,7 +19,7 @@ namespace ServicePlanner.Shared
             pdfConverter = converter;
         }
 
-        public byte[] GenerateServicePdf(Data.Service.Service service)
+        public byte[] GenerateBulletinPdf(Data.Service.Service service)
         {
             string component = RenderComponent(service);
 

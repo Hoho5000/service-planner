@@ -21,7 +21,7 @@
 
     private void HandleServiceCreation()
     {
-        var pdfData = PdfService.GenerateServicePdf(Service);
+        var pdfData = PdfService.GenerateBulletinPdf(Service);
         DownloadFile(pdfData);
     }
 
