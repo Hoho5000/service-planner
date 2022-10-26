@@ -1,9 +1,10 @@
 ﻿using BlazorTemplater;
 using Microsoft.Extensions.Localization;
-using WkHtmlToPdfDotNet;
-using WkHtmlToPdfDotNet.Contracts;
 using ServicePlanner.Resources.Language;
 using ServicePlanner.Bulletin;
+using iText.Html2pdf;
+using iText.Kernel.Pdf;
+using iText.Kernel.Geom;
 
 namespace ServicePlanner.Shared
 {
@@ -11,35 +12,23 @@ namespace ServicePlanner.Shared
     {
         private IStringLocalizer<Strings> localizer;
 
-        private IConverter pdfConverter;
-
-        public PdfService(IStringLocalizer<Strings> localize, IConverter converter)
+        public PdfService(IStringLocalizer<Strings> localize)
         {
             localizer = localize;
-            pdfConverter = converter;
         }
 
         public byte[] GenerateBulletinPdf(BulletinData data)
         {
             string insidePage = RenderInsidePage(data);
 
-            var doc = new HtmlToPdfDocument()
-            {
-                GlobalSettings = {
-                    ColorMode = ColorMode.Color,
-                    Orientation = Orientation.Landscape,
-                    PaperSize = PaperKind.A4,
-                    Margins = new MarginSettings() { Top = 10 },
-                },
-                Objects = {
-                    new ObjectSettings()
-                    {
-                        HtmlContent = insidePage,
-                    },
-                }
-            };
+            var pdfStream = new MemoryStream();
 
-            return pdfConverter.Convert(doc);
+            var document = new PdfDocument(new PdfWriter(pdfStream));
+            document.SetDefaultPageSize(PageSize.LETTER.Rotate());
+
+            HtmlConverter.ConvertToPdf(insidePage, document, new ConverterProperties());
+
+            return pdfStream.ToArray();
         }
 
         private string RenderInsidePage(BulletinData data)
