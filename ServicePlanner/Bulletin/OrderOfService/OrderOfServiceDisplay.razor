@@ -1,0 +1,20 @@
+﻿@inherits BulletinDisplayComponent
+
+@inject IStringLocalizer<Strings> Localize
+
+<div class="row align-items-end @DebugClass">
+    <div class="column">
+        <p>@Localize["OrderOfService.Title"]</p>
+        <ul class="list-group list-group-flush">
+            @foreach (var item in Service.Items)
+            {
+                <ServiceItemDisplay Item="item" />
+            }
+        </ul>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Data.Service.Service Service { get; set; }
+}

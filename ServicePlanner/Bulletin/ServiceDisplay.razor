@@ -1,26 +1,25 @@
 ﻿@using ServicePlanner.Bulletin.OrderOfService
 @using ServicePlanner.Data.Service
 
+@inherits BulletinDisplayComponent
+
 @inject IStringLocalizer<Strings> Localize
 
-<style>
-    .row {
-        display: flex;
-    }
+<div class="container">
+    <div class="row @DebugClass">
+        <div class="col @DebugClass">
+            <!--Left side of page-->
+            <div class="row align-items-start @DebugClass">
+                <p>@Service.Date.ToString("yyyy-MM-dd")</p>
+            </div>
 
-    .column {
-        flex: 50%;
-    }
-</style>
-
-<h3>@Localize["OrderOfService.Title"]</h3>
-<p>@Service.Date.ToString("yyyy-MM-dd")</p>
-<ul class="list-group">
-    @foreach (var item in Service.Items)
-    {
-        <ServiceItemDisplay Item="item"/>
-    }
-</ul>
+            <OrderOfServiceDisplay Service="Service" />
+        </div>
+        <div class="col @DebugClass">
+            <!--Right side of page-->
+        </div>
+    </div>
+</div>
 
 @code {
     [Parameter]

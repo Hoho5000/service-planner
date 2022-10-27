@@ -1,0 +1,13 @@
+﻿@code {
+    protected string DebugClass
+    {
+        get
+        {
+#if DEBUG
+            return "debug";
+#else
+            return "";
+#endif
+        }
+    }
+}
