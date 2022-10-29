@@ -6,7 +6,7 @@
 @using ServicePlanner.Service.Wizard.OrderOfService
 
 @inject IJSRuntime Js
-@inject PdfService PdfService
+@inject BulletinRenderer PdfService
 @inject IStringLocalizer<Strings> Localize
 @inject DataContext Context
 
@@ -33,12 +33,12 @@
 
         data.Service = Service;
 
-        var pdfData = PdfService.GenerateBulletinPdf(data);
+        var pdfData = PdfService.GenerateBulletinFile(data);
         DownloadFile(pdfData);
     }
 
     private void DownloadFile(byte[] pdfData)
     {
-        FileUtility.SaveAs(Js, "Service.pdf", pdfData);
+        FileUtility.SaveAs(Js, "Service.html", pdfData);
     }
 }

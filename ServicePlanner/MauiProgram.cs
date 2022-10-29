@@ -21,7 +21,7 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddSingleton<DataContext>();
-        builder.Services.AddSingleton<PdfService>();
+        builder.Services.AddSingleton<BulletinRenderer>();
         builder.Services.AddLocalization();
 
         return builder.Build();

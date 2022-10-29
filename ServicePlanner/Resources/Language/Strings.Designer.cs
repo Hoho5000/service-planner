@@ -70,15 +70,6 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Service Planner uses &lt;a href=&quot;https://itextpdf.com/&quot;&gt;IText 7&lt;/a&gt; to produce PDF files © 2022 iText Group nv (HQ Belgium), Inc. All rights reserved..
-        /// </summary>
-        public static string About_ITextAttribution {
-            get {
-                return ResourceManager.GetString("About.ITextAttribution", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string About_Title {

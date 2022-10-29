@@ -2,33 +2,24 @@
 using Microsoft.Extensions.Localization;
 using ServicePlanner.Resources.Language;
 using ServicePlanner.Bulletin;
-using iText.Html2pdf;
-using iText.Kernel.Pdf;
-using iText.Kernel.Geom;
+using System.Text;
 
 namespace ServicePlanner.Shared
 {
-    public class PdfService
+    public class BulletinRenderer
     {
         private IStringLocalizer<Strings> localizer;
 
-        public PdfService(IStringLocalizer<Strings> localize)
+        public BulletinRenderer(IStringLocalizer<Strings> localize)
         {
             localizer = localize;
         }
 
-        public byte[] GenerateBulletinPdf(BulletinData data)
+        public byte[] GenerateBulletinFile(BulletinData data)
         {
             string insidePage = RenderInsidePage(data);
 
-            var pdfStream = new MemoryStream();
-
-            var document = new PdfDocument(new PdfWriter(pdfStream));
-            document.SetDefaultPageSize(PageSize.LETTER.Rotate());
-
-            HtmlConverter.ConvertToPdf(insidePage, document, new ConverterProperties());
-
-            return pdfStream.ToArray();
+            return Encoding.ASCII.GetBytes(insidePage);
         }
 
         private string RenderInsidePage(BulletinData data)
