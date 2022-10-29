@@ -5,19 +5,43 @@
 
 @inject IStringLocalizer<Strings> Localize
 
-<div class="container">
-    <div class="row @DebugClass">
-        <div class="col @DebugClass">
-            <!--Left side of page-->
-            <div class="row align-items-start @DebugClass">
+<style>
+    .left-inside-page.debug {
+        border: 1px double green;
+    }
+
+    .service-header.debug {
+        background-color: hotpink;
+    }
+
+    .service-details.debug {
+        background-color: mediumvioletred;
+    }
+</style>
+
+<div class="row flex-fill @DebugClass">
+    <div class="col d-flex flex-column left-inside-page @DebugClass">
+        <!--Left side of page-->
+        <div class="row align-items-start">
+            <div class="col service-header @DebugClass">
+                <!--Header-->
                 <p>@Service.Date.ToString("yyyy-MM-dd")</p>
             </div>
+        </div>
 
-            <OrderOfServiceDisplay Service="Service" />
+        <div class="row align-items-start">
+            <div class="col service-details @DebugClass">
+                <!--Service Details-->
+                Placeholder
+            </div>
         </div>
-        <div class="col @DebugClass">
-            <!--Right side of page-->
-        </div>
+
+        <hr />
+
+        <OrderOfServiceDisplay Service="Service" />
+    </div>
+    <div class="col d-flex flex-column @DebugClass">
+        <!--Right side of page-->
     </div>
 </div>
 

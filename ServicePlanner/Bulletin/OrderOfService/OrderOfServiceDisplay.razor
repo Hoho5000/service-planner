@@ -2,8 +2,14 @@
 
 @inject IStringLocalizer<Strings> Localize
 
-<div class="row align-items-end @DebugClass">
-    <div class="column">
+<style>
+    .order-of-service.debug {
+        background-color: mediumseagreen;
+    }
+</style>
+
+<div class="row flex-fill align-items-center">
+    <div class="col order-of-service @DebugClass">
         <p>@Localize["OrderOfService.Title"]</p>
         <ul class="list-group list-group-flush">
             @foreach (var item in Service.Items)
