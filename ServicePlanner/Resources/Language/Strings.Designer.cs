@@ -115,6 +115,24 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Lord&apos;s Day.
+        /// </summary>
+        public static string GeneralEditor_Controls_Name_Default {
+            get {
+                return ResourceManager.GetString("GeneralEditor.Controls.Name.Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string GeneralEditor_Controls_Name_Label {
+            get {
+                return ResourceManager.GetString("GeneralEditor.Controls.Name.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home_Navigation_Title {

@@ -10,6 +10,11 @@
 @inject IStringLocalizer<Strings> Localize
 @inject DataContext Context
 
+@{
+    SetServiceDefaults();
+}
+
+
 <Wizard OnFinish="HandleServiceCreation">
     <WizardStep Name="@Localize["ServiceWizard.Step.General.Title"]">
         <GeneralEditor Service="Service" />
@@ -20,7 +25,15 @@
 </Wizard>
 
 @code {
-    private Data.Service.Service Service { get; } = new() {Date = DateTime.Today };
+    private Data.Service.Service Service { get; } = new() { Date = DateTime.Today };
+
+    private void SetServiceDefaults()
+    {
+        if (string.IsNullOrEmpty(Service.Name))
+        {
+            Service.Name = Localize["GeneralEditor.Controls.Name.Default"];
+        }
+    }
 
     private void HandleServiceCreation()
     {

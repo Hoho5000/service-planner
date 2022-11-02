@@ -135,6 +135,12 @@
   <data name="GeneralEditor.Controls.Date.Label" xml:space="preserve">
     <value>Service Date</value>
   </data>
+  <data name="GeneralEditor.Controls.Name.Default" xml:space="preserve">
+    <value>The Lord's Day</value>
+  </data>
+  <data name="GeneralEditor.Controls.Name.Label" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="Home.Navigation.Title" xml:space="preserve">
     <value>Home</value>
   </data>
