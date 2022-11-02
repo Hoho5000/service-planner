@@ -141,6 +141,12 @@
   <data name="GeneralEditor.Controls.Name.Label" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="GeneralEditor.Controls.Welcome.Default" xml:space="preserve">
+    <value>Welcome to {0}. We are glad you are here to worship with us. Join us in praise and thanksgiving to our Lord and Savior, Jesus Christ. Please sign our guest book in the foyer before you leave today.</value>
+  </data>
+  <data name="GeneralEditor.Controls.Welcome.Label" xml:space="preserve">
+    <value>Welcome Message</value>
+  </data>
   <data name="Home.Navigation.Title" xml:space="preserve">
     <value>Home</value>
   </data>

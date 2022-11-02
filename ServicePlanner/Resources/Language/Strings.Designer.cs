@@ -133,6 +133,24 @@ namespace ServicePlanner.Resources.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Welcome to {0}. We are glad you are here to worship with us. Join us in praise and thanksgiving to our Lord and Savior, Jesus Christ. Please sign our guest book in the foyer before you leave today..
+        /// </summary>
+        public static string GeneralEditor_Controls_Welcome_Default {
+            get {
+                return ResourceManager.GetString("GeneralEditor.Controls.Welcome.Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome Message.
+        /// </summary>
+        public static string GeneralEditor_Controls_Welcome_Label {
+            get {
+                return ResourceManager.GetString("GeneralEditor.Controls.Welcome.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home_Navigation_Title {

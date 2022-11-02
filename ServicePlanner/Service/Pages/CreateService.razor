@@ -33,6 +33,11 @@
         {
             Service.Name = Localize["GeneralEditor.Controls.Name.Default"];
         }
+
+        if (string.IsNullOrEmpty(Service.WelcomeMessage))
+        {
+            Service.WelcomeMessage = Localize["GeneralEditor.Controls.Welcome.Default"];
+        }
     }
 
     private void HandleServiceCreation()
@@ -41,7 +46,10 @@
 
         if (Context.Institutions.Count() > 0)
         {
-            data.Institution = Context.Institutions.First();
+            var institution = Context.Institutions.First();
+            data.Institution = institution;
+
+            Service.WelcomeMessage = string.Format(Service.WelcomeMessage, institution.Name);
         }
 
         data.Service = Service;

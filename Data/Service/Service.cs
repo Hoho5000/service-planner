@@ -8,6 +8,8 @@ namespace ServicePlanner.Data.Service
 
         public string Name { get; set; }
 
+        public string WelcomeMessage { get; set; }
+
         public DateTime Date { get; set; }
 
         public List<ServiceItem> Items { get; set; } = new List<ServiceItem>();

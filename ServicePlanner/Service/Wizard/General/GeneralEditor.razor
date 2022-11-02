@@ -15,6 +15,12 @@
         </label>
         <input id="service-date" class="form-control" type="date" @bind="Service.Date" />
     </div>
+    <div class="col-12">
+        <label class="form-label" for="service-welcome">
+            @Localize["GeneralEditor.Controls.Welcome.Label"]
+        </label>
+        <textarea id="service-welcome" class="form-control" rows="3" style="resize: none;" @bind="Service.WelcomeMessage" />
+    </div>
 </form>
 
 @code {
