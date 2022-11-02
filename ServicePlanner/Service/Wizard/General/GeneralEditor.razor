@@ -2,16 +2,18 @@
 
 @inject IStringLocalizer<Strings> Localize
 
-<form>
-    <div class="form-group">
-        <label class="form-label">
+<form class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label" for="service-name">
             @Localize["GeneralEditor.Controls.Name.Label"]
-            <input class="form-control" type="text" @bind="Service.Name" />
         </label>
-        <label class="form-label">
+        <input id="service-name" class="form-control" type="text" @bind="Service.Name" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label" for="service-date">
             @Localize["GeneralEditor.Controls.Date.Label"]
-            <input class="form-control" type="date" @bind="Service.Date" />
         </label>
+        <input id="service-date" class="form-control" type="date" @bind="Service.Date" />
     </div>
 </form>
 
