@@ -7,7 +7,10 @@ namespace ServicePlanner.Data
     public class DataContext : DbContext
     {
         public DbSet<Institution> Institutions { get; set; }
+
         public DbSet<Service.Service> Services { get; set; }
+
+        public DbSet<PhoneNumber> PhoneNumbers { get; set; }
 
         private string DbPath { get; }
 

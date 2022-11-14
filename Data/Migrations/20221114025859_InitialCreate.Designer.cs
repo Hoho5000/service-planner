@@ -11,13 +11,14 @@ using ServicePlanner.Data;
 namespace ServicePlanner.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221023095937_InitialCreate")]
+    [Migration("20221114025859_InitialCreate")]
     partial class InitialCreate
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
             modelBuilder.Entity("Address", b =>
                 {
@@ -62,15 +63,31 @@ namespace ServicePlanner.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Phone")
-                        .IsRequired()
+                    b.Property<Guid>("PhoneId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AddressId");
 
+                    b.HasIndex("PhoneId");
+
                     b.ToTable("Institutions");
+                });
+
+            modelBuilder.Entity("ServicePlanner.Data.PhoneNumber", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Number")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PhoneNumbers");
                 });
 
             modelBuilder.Entity("ServicePlanner.Data.Service.Service", b =>
@@ -80,6 +97,14 @@ namespace ServicePlanner.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("WelcomeMessage")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -101,6 +126,8 @@ namespace ServicePlanner.Data.Migrations
                     b.HasIndex("ServiceId");
 
                     b.ToTable("ServiceItem");
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("ServicePlanner.Data.Music.Song", b =>
@@ -136,7 +163,15 @@ namespace ServicePlanner.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ServicePlanner.Data.PhoneNumber", "Phone")
+                        .WithMany()
+                        .HasForeignKey("PhoneId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Address");
+
+                    b.Navigation("Phone");
                 });
 
             modelBuilder.Entity("ServicePlanner.Data.Service.ServiceItem", b =>

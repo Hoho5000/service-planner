@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ServicePlanner.Data.Migrations
 {
+    /// <inheritdoc />
     public partial class InitialCreate : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -26,10 +28,24 @@ namespace ServicePlanner.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PhoneNumbers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Number = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PhoneNumbers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Services",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    WelcomeMessage = table.Column<string>(type: "TEXT", nullable: false),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -43,7 +59,7 @@ namespace ServicePlanner.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Phone = table.Column<string>(type: "TEXT", nullable: false),
+                    PhoneId = table.Column<Guid>(type: "TEXT", nullable: false),
                     AddressId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -53,6 +69,12 @@ namespace ServicePlanner.Data.Migrations
                         name: "FK_Institutions_Address_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Address",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Institutions_PhoneNumbers_PhoneId",
+                        column: x => x.PhoneId,
+                        principalTable: "PhoneNumbers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -117,11 +139,17 @@ namespace ServicePlanner.Data.Migrations
                 column: "AddressId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Institutions_PhoneId",
+                table: "Institutions",
+                column: "PhoneId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ServiceItem_ServiceId",
                 table: "ServiceItem",
                 column: "ServiceId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
@@ -135,6 +163,9 @@ namespace ServicePlanner.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Address");
+
+            migrationBuilder.DropTable(
+                name: "PhoneNumbers");
 
             migrationBuilder.DropTable(
                 name: "ServiceItem");
