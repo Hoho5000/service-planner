@@ -17,7 +17,7 @@ namespace ServicePlanner.Data
             var path = Environment.GetFolderPath(folder);
             DbPath = Path.Join(path, "data.db");
 
-            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
